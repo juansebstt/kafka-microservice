@@ -11,12 +11,16 @@ spring:
     password: 1234
   cloud:
     function:
-      definition:
+      definition: gameCreatedBinding;
     stream:
       default-binder: kafka_default
       bindings:
-        gameBinding-out-0:
+        gameCreatedBinding-in-0:
           destination: event.game-created
+          binder: kafka-default
+          useNativeDecoding: true
+        gameCreatedBinding-out-0:
+          destination: event.game-eligible
           binder: kafka-default
           useNativeDecoding: true
       binders:
