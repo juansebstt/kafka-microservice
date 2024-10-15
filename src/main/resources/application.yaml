@@ -25,6 +25,10 @@ spring:
           binder: kafka-default
           useNativeDecoding: true
       binders:
+        binding:
+          destination: event.file-started
+          binder: kafka_default
+          useNativeDecoding: true
         kafka_default:
           type: kafka
           environment:
@@ -49,4 +53,3 @@ spring:
                       replicationFactor: 1
                       serdeError: logAndContinue
                       brokers: localhost:9092
-                      
